@@ -14,13 +14,13 @@ inputs:
     description: "Output a snyk.json file with results if running the test command"
     default: false
 runs:
-  using: "docker"
-  image: "docker://${{ env.DOCKER_IMAGE }}"
   env:
     DOCKER_IMAGE: "snyk/snyk:gradle-jdk11"
     FORCE_COLOR: 2
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
     SNYK_INTEGRATION_VERSION: gradle-jdk11
+  using: "docker"
+  image: "docker://${{ env.DOCKER_IMAGE }}"
   args:
   - snyk
   - ${{ inputs.command }}
