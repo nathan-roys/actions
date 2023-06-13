@@ -13,12 +13,11 @@ inputs:
   json:
     description: "Output a snyk.json file with results if running the test command"
     default: false
-  docker_image:
-    description: "Specify a docker image to use for this action, useful if you want to override the default image"
-    default: "snyk/snyk:python-3.8"
 runs:
+  env:
+    DOCKER_IMAGE: "snyk/snyk:python-3.8"
   using: "docker"
-  image: "docker://${{ inputs.docker_image }}"
+  image: "docker://${{ env.DOCKER_IMAGE }}"
   env:
     FORCE_COLOR: 2
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
