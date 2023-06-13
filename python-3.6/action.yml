@@ -14,11 +14,10 @@ inputs:
     description: "Output a snyk.json file with results if running the test command"
     default: false
 runs:
-  env:
-    DOCKER_IMAGE: "snyk/snyk:python-3.6"
   using: "docker"
   image: "docker://${{ env.DOCKER_IMAGE }}"
   env:
+    DOCKER_IMAGE: "snyk/snyk:python-3.6"
     FORCE_COLOR: 2
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
     SNYK_INTEGRATION_VERSION: python-3.6
