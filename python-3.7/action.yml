@@ -13,7 +13,7 @@ inputs:
   json:
     description: "Output a snyk.json file with results if running the test command"
     default: false
-  docker-image:
+  docker_image:
     description: "Specify a docker image to use for this action, useful if you want to override the default image"
     default: "snyk/snyk:python-3.7"
 runs:
